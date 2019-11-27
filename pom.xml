@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>nl.b3p</groupId>
+    <artifactId>brmo-handleiding</artifactId>
+    <version>2.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>BRMO handleiding</name>
+    <description>Handleiding voor B3Partners BRMO applicatie</description>
+    <url>https://github.com/B3Partners/brmo/wik</url>
+    <inceptionYear>2014</inceptionYear>
+    <licenses>
+        <license>
+            <url>https://creativecommons.org/licenses/by-sa/2.0/nl/legalcode</url>
+            <name>Creative Commons Naamsvermelding-GelijkDelen 2.0 Nederland (CC BY-SA 2.0 NL)</name>
+            <distribution>repo</distribution>
+            <comments>Voor de BRMO wiki en documentatie.</comments>
+        </license>
+    </licenses>
+    <organization>
+        <name>B3Partners B.V.</name>
+        <url>http://www.b3partners.nl/</url>
+    </organization>
+    <scm>
+        <developerConnection>git@github.com:mprins/stunning-computing-machine.git</developerConnection>
+        <connection>https://github.com/mprins/stunning-computing-machine.git</connection>
+        <url>https://github.com/mprins/stunning-computing-machine</url>
+        <tag>HEAD</tag>
+    </scm>
+    <issueManagement>
+        <system>Github</system>
+        <url>https://github.com/B3Partners/brmo/issues</url>
+    </issueManagement>
+    <ciManagement>
+        <system>Travis-CI</system>
+        <url>https://travis-ci.org/B3Partners/brmo</url>
+    </ciManagement>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <wiki.checkout.url>scm:git:https://github.com/B3Partners/brmo.wiki.git</wiki.checkout.url>
+    </properties>
+    <build>
+        <defaultGoal>package</defaultGoal>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-scm-plugin</artifactId>
+                    <version>1.11.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-antrun-plugin</artifactId>
+                    <version>1.8</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-pdf-plugin</artifactId>
+                    <version>1.4</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.spyhunter99</groupId>
+                    <artifactId>maven-pdf-plugin</artifactId>
+                    <version>1.5.0.7</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>3.2.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <artifactId>maven-scm-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>getWiki</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>checkout</goal>
+                        </goals>
+                        <configuration>
+                            <connectionUrl>${wiki.checkout.url}</connectionUrl>
+                            <checkoutDirectory>${project.build.directory}/wiki/</checkoutDirectory>
+                            <scmVersion>master</scmVersion>
+                            <scmVersionType>branch</scmVersionType>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>processWiki</id>
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <mkdir dir="${project.build.directory}/wiki-site/markdown/"/>
+                                <mkdir dir="${project.build.directory}/wiki-site/apt/"/>
+                                <mkdir dir="${project.build.directory}/wiki-site/resources/"/>
+                                <copy todir="${project.build.directory}/wiki-site/markdown/" overwrite="true">
+                                    <fileset dir="${project.build.directory}/wiki/" includes="*.md"/>
+                                </copy>
+                                <copy todir="${project.build.directory}/wiki-site/resources/" overwrite="true">
+                                    <fileset dir="${project.build.directory}/wiki/" includes="*.png"/>
+                                </copy>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <!-- https://github.com/spyhunter99/maven-pdf-plugin-->
+                <groupId>com.github.spyhunter99</groupId>
+                <artifactId>maven-pdf-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>pdf</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>pdf</goal>
+                        </goals>
+                        <configuration>
+                            <generatedSiteDirectory>${project.build.directory}/wiki-site</generatedSiteDirectory>
+                            <generateTOC>start</generateTOC>
+                            <includeReports>false</includeReports>
+                            <aggregate>true</aggregate>
+                            <locales>nl</locales>
+                            <!-- spyhunter99/maven-pdf-plugin opties-->
+                            <tocMaxDepthToPrint>4</tocMaxDepthToPrint>
+                            <foStylesOverride>src/site/resources/fo-styles.xslt</foStylesOverride>
+                            <executiveSummaryName>Introductie</executiveSummaryName>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.doxia</groupId>
+                        <artifactId>doxia-module-markdown</artifactId>
+                        <version>1.9</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <descriptors>assembly.xml</descriptors>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,91 @@
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns="http://maven.apache.org/DOCUMENT/1.0.1"
+          xsi:schemaLocation="http://maven.apache.org/DOCUMENT/1.0.1 http://maven.apache.org/xsd/document-1.0.1.xsd"
+          outputName="BRMO-handleiding-${project.version}">
+
+    <meta>
+        <title>BRMO handleiding</title>
+        <author>B3Partners</author>
+        <pageSize>A4</pageSize>
+    </meta>
+
+    <toc name="Inhoudsopgave">
+        <item name="Introductie" ref="Home.md"/>
+        <item name="Handleidingen" ref="Handleidingen.md"/>
+        <!-- TODO-->
+
+        <!-- autom. processen -->
+        <item name="Automatische processen" ref="Automatische-processen.md"/>
+        <item name="- BAGDirectoryScanner" ref="BAGDirectoryScanner.md"/>
+        <item name="- BRKDirectoryScanner" ref="BRKDirectoryScanner.md"/>
+        <item name="- GDS2OphalenProces" ref="GDS2OphalenProces.md"/>
+        <item name="- BGTLightDirectoryScanner" ref="BGTLightDirectoryScanner.md"/>
+        <item name="- BGTLightOphaalProces" ref="BGTLightOphaalProces.md"/>
+        <item name="- WebMirrorBAGDirectoryScanner" ref="WebMirrorBAGDirectoryScanner.md"/>
+        <item name="- TopNLScannerProces" ref="TopNLScannerProces.md"/>
+        <item name="- BerichtDoorsturenProces" ref="BerichtDoorsturenProces.md"/>
+        <item name="- BerichtTransformatieUitvoeren" ref="BerichtTransformatieUitvoeren.md"/>
+        <item name="- LaadprocesTransformatieUitvoeren" ref="LaadprocesTransformatieUitvoeren.md"/>
+        <item name="- MailRapportage" ref="MailRapportage.md"/>
+        <item name="- BerichtstatusRapport" ref="BerichtstatusRapport.md"/>
+        <item name="- AfgifteNummerScannerProces" ref="AfgifteNummerScannerProces.md"/>
+        <item name="- MaterializedViewRefresh" ref="MaterializedViewRefresh.md"/>
+        <!-- controle -->
+        <item name="Controle module" ref="Controle-module.md"/>
+
+        <!-- snelle updates -->
+        <item name="Snelle updates" ref="Snelle-updates.md"/>
+        <item name="- Toevoegen BSN aan ingeschreven natuurlijk persoon"
+              ref="Toevoegen-BSN-aan-ingeschreven-natuurlijk-persoon.md"/>
+        <item name="- Toevoegen RSIN aan ingeschreven niet-natuurlijk persoon"
+              ref="Toevoegen-RSIN-aan-ingeschreven-niet-natuurlijk-persoon.md"/>
+        <item name="- Bijwerken van omschrijving, datum en ref_id in brondocument"
+              ref="Bijwerken-van-omschrijving,-datum-en-ref_id-in-brondocument.md"/>
+        <item name="- Bijwerken van onvolledig adres" ref="Bijwerken-van-onvolledig-adres.md"/>
+        <item name="- Bijwerken rechthebbende VVE" ref="Bijwerken-rechthebbende-VVE.md"/>
+        <item name="- Bijwerken 'gba:NietIngezetene'" ref="Bijwerken-gba:NietIngezetene.md"/>
+        <item name="- Bijwerken subject adres comfort data" ref="Bijwerken-subject-adres-comfort-data.md"/>
+        <item name="- Bijwerken 'ingangsdatum_recht' zakelijk recht"
+              ref="Bijwerken-ingangsdatum_recht-zakelijk-recht.md"/>
+
+        <!-- geavanceerde functies -->
+        <item name="Geavanceerde functies" ref="Geavanceerde-functies.md"/>
+        <item name="- Exporteren BRK mutaties" ref="Exporteren-BRK-mutaties.md"/>
+        <item name="- Repareren BRK mutaties" ref="Repareren-BRK-mutaties.md"/>
+        <item name="- Repareren BAG mutaties" ref="Repareren-BAG-mutaties.md"/>
+        <item name="- Opschonen en archiveren van BRK berichten" ref="Opschonen-en-archiveren-van-BRK-berichten.md"/>
+        <item name="- Opschonen en archiveren van BAG berichten" ref="Opschonen-en-archiveren-van-BAG-berichten.md"/>
+        <item name="- Opschonen en archiveren van nHR berichten" ref="Opschonen-en-archiveren-van-nHR-berichten.md"/>
+        <item name="- Verwijderen van BRK berichten met status ARCHIVE"
+              ref="Verwijderen-van-BRK-berichten-met-status-ARCHIVE.md"/>
+        <item name="- Verwijderen van BAG berichten met status ARCHIVE"
+              ref="Verwijderen-van-BAG-berichten-met-status-ARCHIVE.md"/>
+        <item name="- Verwijderen van nHR berichten met status ARCHIVE"
+              ref="Verwijderen-van-nHR-berichten-met-status-ARCHIVE.md"/>
+        <item name="- Herhaal transformatie BRK verwijderberichten"
+              ref="Herhaal-transformatie-BRK-verwijderberichten.md"/>
+        <item name="- Fix 'typering' en 'clazz' van nHR persoon" ref="Fix-'typering'-en-'clazz'-van-nHR-persoon.md"/>
+        <item name="- Vul de 'herstelde bestandsnaam' van BRK laadprocessen"
+              ref="Vul-de-'herstelde-bestandsnaam'-van-BRK-laadprocessen.md"/>
+
+        <!-- faq -->
+        <item name="FAQ" ref="FAQ-(veel-gestelde-vragen-en-bijzonderheden).md"/>
+        <!-- TODO-->
+
+        <!-- andere modules -->
+        <item name="Commandline interface" ref="Commandline-interface.md"/>
+        <item name="BRMO proxyservice" ref="brmo-proxyservice.md"/>
+
+    </toc>
+
+    <cover>
+        <coverTitle>${project.name}</coverTitle>
+        <coverSubTitle>voor versie ${project.version}</coverSubTitle>
+        <coverType>Handleiding</coverType>
+        <projectName>${project.name}</projectName>
+        <!-- <projectLogo>images/logo.png</projectLogo>-->
+        <companyName>${project.organization.name}</companyName>
+        <companyLogo>images/logo.png</companyLogo>
+    </cover>
+
+</document>
