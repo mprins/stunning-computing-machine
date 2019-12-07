@@ -12,7 +12,14 @@
     <toc name="Inhoudsopgave">
         <item name="Introductie" ref="Home.md"/>
         <item name="Handleidingen" ref="Handleidingen.md"/>
-        <!-- TODO-->
+
+        <item name="- BRMO Commandline" ref="Commandline-interface.md"/>
+        <item name="- BRMO proxyservice" ref="brmo-proxyservice.md"/>
+        <item name="- BRMO SOAP service" ref="BRMO-SOAP-handleiding"/>
+        <!-- TODO aanvullen -->
+
+<!-- TODO syntax fixen in:
+       <item name="Installatiehandleiding BRMO service" ref="Installatiehandleiding.md"/>-->
 
         <!-- autom. processen -->
         <item name="Automatische processen" ref="Automatische-processen.md"/>
@@ -30,6 +37,7 @@
         <item name="- BerichtstatusRapport" ref="BerichtstatusRapport.md"/>
         <item name="- AfgifteNummerScannerProces" ref="AfgifteNummerScannerProces.md"/>
         <item name="- MaterializedViewRefresh" ref="MaterializedViewRefresh.md"/>
+        <item name="- Geplande taken configuratie" ref="Geplande-taken-configuratie.md"/>
         <!-- controle -->
         <item name="Controle module" ref="Controle-module.md"/>
 
@@ -70,11 +78,21 @@
 
         <!-- faq -->
         <item name="FAQ" ref="FAQ-(veel-gestelde-vragen-en-bijzonderheden).md"/>
-        <!-- TODO-->
-
-        <!-- andere modules -->
-        <item name="Commandline interface" ref="Commandline-interface.md"/>
-        <item name="BRMO proxyservice" ref="brmo-proxyservice.md"/>
+        <!-- algemeen -->
+        <item name="Hoeveel mutaties per dag voor BRK" ref="aantal-BRK-mutaties.md"/>
+        <item name="Hoe controleer ik (de kwaliteit van) de gegevens" ref="Kwaliteits-en-integriteits-controle"/>
+        <item name="- Geoserver optimalisaties" ref="Geoserver-optimalisaties.md"/>
+        <item name="- BAG stand laden" ref="BAG-stand-laden.md"/>
+        <item name="- Gemeente-georiënteerde BAG-standen laden" ref="Gemeente-georiënteerde-BAG-standen-laden-in-staging.md"/>
+        <item name="- SSL Certificaten converteren" ref="SSL-Certificaten-converteren.md"/>
+        <item name="- Private key formaat GDS2" ref="Private-key-formaat-GDS2.md"/>
+        <!-- oracle -->
+        <item name="- Welke jdbc driver?" ref="Welke-jdbc-driver.md"/>
+        <item name="- tips en tricks" ref="tips-en-tricks.md"/>
+        <item name="- Oracle 8000 bytes bug" ref="Oracle-8000-bytes-bug.md"/>
+<!--        todo oplossen bestandsnaam probleem...-->
+        <item name="- ORA-01000: Maximum aantal open cursors is overschreden fout oplossen"
+              ref="%22ORA-01000:-Maximum-aantal-open-cursors-is-overschreden%22-fout-oplossen.md"/>
 
     </toc>
 
