@@ -16,7 +16,7 @@ timestamps {
             }
 
             stage('Build') {
-                sh "mvn install -B -V -e -fae"
+                sh "mvn install -X -B -V -e -fae"
             }
         }
     }
